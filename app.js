@@ -114,6 +114,72 @@ function PrintEveryNumRecursively(value){
     }
 }
 PrintEveryNumRecursively(GivenNumbersToPrint);
+console.log('\n');
 
-//
+//PART 2 Sort the array by age.
+const anArry = [ 
+    {id: "42", name: "Bruce", occupation: "Knight", age: "41"},
+    {id: "48", name: "Barry", occupation: "Runner", age: "25"},
+    {id: "57", name: "Bob", occupation: "Fry Cook", age: "19"},
+    {id: "63", name: "Blaine", occupation: "Quiz Master", age: "58"},
+    {id: "7", name: "Bilbo", occupation: "None", age: "111"}
+];
+console.log("Assignment ALAB 308.5.1: Part2: Title: Sort the array by age:");  
+console.log("Arry BEFORE SORT:");  
+console.log(anArry);
+anArry.sort((a,b) =>a.age - b.age);
+console.log("Arry AFTER SORT:");  
+console.log(anArry);
+//console.log(`Assignment ALAB 308.5.1: Part2: Title: Sort the array by age: '\n' Ary Before Sort ${anArry} '\n' Ary After Sort ${anArry}`);  
 
+//Filter the array to remove entries with an age greater than 50.
+
+AgeToFilter = 50;
+let tempary = Array();
+//SpliceArry
+anArry.forEach((item, index) => {
+    //console.log(item)
+    if (item.age > AgeToFilter) {
+        tempArry = anArry.splice(index);
+        //anArry[index].delete;
+        console.log(item);
+    }
+})
+console.log("Assignment ALAB 308.5.1: Part2: Filter the array to remove entries with an age greater than 50:");  
+console.log(anArry);
+console.log('\n');
+
+//Map the array to change the “occupation” key to “job” and increment every age by 1.
+const anArry2 = [ 
+    {id: "42", name: "Bruce", occupation: "Knight", age: "41"},
+    {id: "48", name: "Barry", occupation: "Runner", age: "25"},
+    {id: "57", name: "Bob", occupation: "Fry Cook", age: "19"},
+    {id: "63", name: "Blaine", occupation: "Quiz Master", age: "58"},
+    {id: "7", name: "Bilbo", occupation: "None", age: "111"}
+];
+
+const changed_anArry2 = anArry2.map(anArry2 => {
+
+    return {
+        age: String((Number(anArry2.age) + 1)) , 
+        job: anArry2.occupation
+    };
+  });
+  console.log("Assignment ALAB 308.5.1: Part2: Map the array to change the “occupation” key to “job” and increment every age by 1:");  
+  console.log(changed_anArry2);
+
+
+  //Use the reduce method to calculate the sum of the ages.
+  const sumage = changed_anArry2.reduce((accumulator, currentValue) => {
+    return accumulator + Number(currentValue.age);
+  }, 0); // 0 is the initial value of the accumulator
+  
+  console.log("Assignment ALAB 308.5.1: Part2: Use the reduce method to calculate the sum of the ages:");  
+  console.log(sumage); 
+
+
+  //Then use the result to calculate the average age.
+  const averageAge = changed_anArry2.reduce((total, item) => total + Number(item.age), 0) / changed_anArry2.length;
+
+  console.log("Assignment ALAB 308.5.1: Part2: Then use the result to calculate the average age:");  
+  console.log(averageAge); 
